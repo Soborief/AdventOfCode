@@ -4,25 +4,14 @@ import math
 # part 1
 
 
-def what_distance(location_id_list1, location_id_list2):
+def what_distance(location_id_list1: list, location_id_list2: list):
     distance = []
     total = 0
-    for i in range(len(location_id_list1)):
-        for n in range(len(location_id_list1)-i-1):
-
-            if location_id_list1[n] > location_id_list1[n+1]:
-                location_id_list1[n], location_id_list1[n +
-                                                        1] = location_id_list1[n+1], location_id_list1[n]
+    sorted_list1 = sorted(location_id_list1)
+    sorted_list2 = sorted(location_id_list2)
 
     for i in range(len(location_id_list2)):
-        for n in range(len(location_id_list2)-i-1):
-
-            if location_id_list2[n] > location_id_list2[n+1]:
-                location_id_list2[n], location_id_list2[n +
-                                                        1] = location_id_list2[n+1], location_id_list2[n]
-
-    for i in range(len(location_id_list2)):
-        distance.append(abs(location_id_list1[i] - location_id_list2[i]))
+        distance.append(abs(sorted_list1[i] - sorted_list2[i]))
 
     for i in range(len(distance)):
         total += distance[i]
@@ -46,7 +35,7 @@ def parse_input(input):
     list1 = []
     list2 = []
     for i in range(len(input)):
-        split_input = input[i].split('   ')
+        split_input = input[i].split()
         list1.append(int(split_input[0]))
         list2.append(int(split_input[1]))
 
