@@ -157,6 +157,7 @@ def parse_input(input):
 
 
 def main():
+    start_time = time.time()
     if len(sys.argv) == 2:
         input_file = str(sys.argv[1])
     else:
@@ -170,6 +171,9 @@ def main():
 
     result = safe_reports(levels)
     print(result)
+
+    end_time = time.time()
+    print(f"main execution time: {end_time - start_time:.4f} seconds")
 
 
 if __name__ == "__main__":
